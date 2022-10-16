@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import './card.scss'
 
-export default class Card extends Component {
+type CardProps = { login: string, avatar_url: string, company: string }
+
+export default class Card extends Component<CardProps> {
     render() {
+        const { avatar_url, login, company } = this.props;
         return (
-            <div className="github-profile">
-                <img src="https://picsum.photos/200" alt="" />
-                <div className="info">
-                    <div className="name">Name here...</div>
-                    <div className="company">Company here...</div>
-                </div>
-            </div>
+            <section className="github-profile">
+                <img src={avatar_url} alt="avatar" />
+                <section className="info">
+                    <h6 className="name">{login}</h6>
+                    <p className="company">{company}</p>
+                </section>
+            </section>
         )
     }
 }
